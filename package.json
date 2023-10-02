@@ -1,0 +1,30 @@
+{
+  "name": "@trans.eu/use-async",
+  "version": "0.0.0",
+  "description": "load data hook that works with React.Suspense",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trans-eu/use-async.git"
+  },
+  "keywords": [
+    "react",
+    "async",
+    "suspense",
+    "hook",
+    "data",
+    "loading"
+  ],
+  "author": {
+    "name": "Trans.eu",
+    "url": "https://github.com/trans-eu"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trans-eu/use-async/issues"
+  },
+  "homepage": "https://github.com/trans-eu/use-async#readme"
+}
