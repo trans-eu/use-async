@@ -24,7 +24,7 @@ const useAwait = (...args) => {
             if (!showFallback) {
                 throw data;
             }
-            return fallback;
+            return typeof fallback === 'function' ? fallback(data) : fallback;
         default:
             throw promise.then(() => new Promise(resolve => setTimeout(resolve, 0)));
     }
