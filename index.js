@@ -1,6 +1,10 @@
 const syncPromiseStore = new WeakMap();
 
-const useAwait = (promise) => {
+const useAwait = (...args) => {
+    const [promise, fallback] = args;
+    // check if fallback value was passed (could be set to undefined by purpose)
+    const showFallback = args.length === 2;
+
     if (!syncPromiseStore.has(promise)) {
         syncPromiseStore.set(promise, { status: 'pending' });
         promise
@@ -17,7 +21,10 @@ const useAwait = (promise) => {
         case 'resolved':
             return data;
         case 'rejected':
-            throw data;
+            if (!showFallback) {
+                throw data;
+            }
+            return fallback;
         default:
             throw promise.then(() => new Promise(resolve => setTimeout(resolve, 0)));
     }
